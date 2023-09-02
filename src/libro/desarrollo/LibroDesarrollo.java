@@ -4,6 +4,7 @@
  */
 package libro.desarrollo;
 
+import java.net.URI;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -17,10 +18,15 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+import java.nio.file.Paths;
+import javafx.application.Platform;
 
 /**
  *
@@ -103,12 +109,13 @@ public class LibroDesarrollo extends Application {
 
         buttonDer.setOnAction((event) -> {
 
-            if (nPagina < 3) {
-                
+            if (nPagina < 4) {
+
                 paginas.getChildren().clear();
 
                 paginas.getChildren().addAll(izq, CambiarPagina(nPagina + 1), der);
                 nPagina += 1;
+
             }
 
         });
@@ -132,10 +139,31 @@ public class LibroDesarrollo extends Application {
             case 3:
                 PageUpdate = Pagina3();
                 break;
+                
+            case 4:
+                PageUpdate = Pagina4();
+                break;
 
             default:
                 throw new AssertionError();
         }
+
+            String ruta = "src/audios/pasando-hoja.mp3";
+        Platform.runLater(() -> {
+            URI uri = Paths.get(ruta).toUri();
+
+            String uriString = uri.toString();
+
+            Media media = new Media(uriString);
+
+            MediaPlayer mediaPlayer = new MediaPlayer(media);
+
+            if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
+                mediaPlayer.stop();
+                mediaPlayer.seek(Duration.ZERO);
+            }
+            mediaPlayer.play();
+        });
 
         return PageUpdate;
 
@@ -386,6 +414,69 @@ public class LibroDesarrollo extends Application {
     }
 
     private HBox Pagina4() {
+
+        HBox page = new HBox();
+        page.setMaxHeight(pantallaHeight);
+        page.setMaxWidth(pantallaHeight);
+
+        VBox izquierda = new VBox();
+        izquierda.setMinWidth(620);
+        izquierda.setMinHeight(pantallaHeight);
+        izquierda.setAlignment(Pos.TOP_CENTER);
+
+        VBox centro = new VBox();
+        centro.setMinWidth(50);
+        centro.setMinHeight(pantallaHeight);
+
+        VBox derecha = new VBox();
+        derecha.setMinWidth(620);
+        derecha.setMinHeight(pantallaHeight);
+        derecha.setAlignment(Pos.TOP_CENTER);
+
+        ImageView imageView = fun.getImage("medio", ".png", 50, 870);
+        
+        //Primer Pagina
+        
+
+        VBox texto1 = fun.setTextos("Empresas como Netscape y Microsoft lanzaron sus propios navegadores web en competencia con Mosaic.", 60, 0);
+
+        VBox textoBold1 = fun.setTextosBold("Década de 2000: La Web 2.0", 20, 0);
+
+        VBox texto2 = fun.setTextos("A principios de la década de 2000, se popularizaron los blogs, las redes sociales y los servicios web interactivos, marcando el comienzo de la era de la Web 2.0.", 10, 0);
+        
+        VBox texto2_1 = fun.setTextos("Google se convirtió en un motor de búsqueda líder, y la publicidad en línea se volvió una fuente importante de ingresos.", 10, 0);
+        
+        VBox textoBold2 = fun.setTextosBold("Década de 2010: Web Móvil y Redes Sociales", 20, 0);
+        
+        VBox texto3 = fun.setTextos("La década de 2010 presenció la proliferación de dispositivos móviles y la creciente importancia de la web móvil.", 10, 0);
+        
+        VBox texto4 = fun.setTextos("Redes sociales como Facebook, Twitter, Instagram y LinkedIn se convirtieron en parte integral de la vida cotidiana de las personas.", 10, 20);
+        
+        ImageView redes = fun.getImage("redes-sociales", ".png", 495, 255);
+        
+        //Segundo Pagina
+        
+        VBox textoBold3 = fun.setTextosBold("Década de 2020: Web Moderna y Avances Tecnológicos", 60, 0);
+        
+        VBox texto5 = fun.setTextos("La web moderna incluye tecnologías como HTML5, CSS3 y JavaScript avanzado, que permiten experiencias interactivas y receptivas en la web.", 10, 0);
+        
+        VBox texto6 = fun.setTextos("Avances como la inteligencia artificial, la realidad virtual y la inteligencia de datos están moldeando el futuro de la web.", 10, 20);
+        
+        VBox texto7 = fun.setTextos("La historia de la web es una historia de innovación continua, colaboración global y un cambio radical en la forma en que las personas se comunican, trabajan y acceden a la información. La web ha evolucionado desde sus humildes comienzos en el CERN hasta convertirse en una fuerza omnipresente que afecta todos los aspectos de la vida moderna.", 20, 0);
+        
+        ImageView imgWeb = fun.getImage("web4", ".jpg", 495, 310);
+        
+        izquierda.getChildren().addAll(texto1, textoBold1, texto2, texto2_1 ,textoBold2, texto3, texto4, redes);
+
+        centro.getChildren().add(imageView);
+
+        derecha.getChildren().addAll(textoBold3, texto5, texto6, imgWeb ,texto7);
+        page.getChildren().addAll(izquierda, centro, derecha);
+
+        return page;
+    }
+    
+    private HBox Pagina5() {
 
         HBox page = new HBox();
         page.setMaxHeight(pantallaHeight);
