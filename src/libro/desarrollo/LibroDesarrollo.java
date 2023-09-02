@@ -109,7 +109,7 @@ public class LibroDesarrollo extends Application {
 
         buttonDer.setOnAction((event) -> {
 
-            if (nPagina < 4) {
+            if (nPagina < 7) {
 
                 paginas.getChildren().clear();
 
@@ -143,7 +143,19 @@ public class LibroDesarrollo extends Application {
             case 4:
                 PageUpdate = Pagina4();
                 break;
-
+                
+            case 5:
+                PageUpdate = Pagina5();
+                break;
+                
+            case 6:
+                PageUpdate = Pagina6();
+                break;
+                
+            case 7:
+                PageUpdate = Pagina7();
+                break;
+                
             default:
                 throw new AssertionError();
         }
@@ -203,12 +215,8 @@ public class LibroDesarrollo extends Application {
         Label label = new Label("Desarrolo Web");
         label.setStyle("-fx-padding: 60px 0 0 0; -fx-font-weight: bold;");
         label.setFont(new Font("copper-black ", 42));
-
-        Text texto1 = new Text();
-        texto1.setText("Bienvenido a un viaje fascinante a través del mundo de la programación web. En este libro, exploraremos desde los conceptos más básicos hasta las complejidades del desarrollo web.");
-        texto1.setTextAlignment(TextAlignment.JUSTIFY);
-        texto1.setWrappingWidth(490);
-        texto1.setFont(new Font("Arial", 19));
+        
+        VBox texto1 = fun.setTextos("Bienvenido a un viaje fascinante a través del mundo del desarrollo web. En este libro, exploraremos los conceptos más básicos, tambien abordaremos la importancia de la web, su historia travez de los años y la actuilidad del desarrollo de aplicaciones y sitios webs.", 25, 0);
 
         Text texto2 = new Text();
         texto2.setText("La programación web es esencial en nuestra vida digital actual, desde sitios web hasta aplicaciones móviles. En este libro, aprenderás a crear páginas web, aplicaciones interactivas y a conectarte con servidores en tiempo real.");
@@ -301,73 +309,8 @@ public class LibroDesarrollo extends Application {
         derecha.setAlignment(Pos.TOP_CENTER);
 
         //Primer Pagina
-        Label label = new Label("Herramientas necerarias");
-        label.setStyle("-fx-padding: 60px 0 0 0; -fx-font-weight: bold;");
-        label.setFont(new Font("copper-black ", 26));
-
-        ImageView imageView = fun.getImage("medio", ".png", 50, 870);
-
-        VBox texto1 = fun.setTextos("Para desarrollar sitios web, necesitarás una serie de herramientas y tecnologías esenciales. Aquí hay una lista de las herramientas y tecnologías básicas que necesitarás:", 20, 0);
-        VBox textoBold1 = fun.setTextosBold("Editor de Codigo o IDE", 20, 0);
-
-        VBox texto2 = fun.setTextos("Un editor de código es esencial para escribir, editar y depurar el código. Algunas opciones populares son Visual Studio Code Sublime Text, Atom y WebStorm", 10, 0);
-
-        VBox texto3 = fun.setTextos("Los IDEs o Entornos de Desarrollo Integrado son excelentes opciones en especial si trabajas con leguajes de servidor con Java, algunos IDEs populares son IntelliJ IDEA, Eclipse, NetBeans y Visual estudio.", 10, 0);
-
-        VBox textoBold2 = fun.setTextosBold("Navegador Web", 20, 0);
-
-        VBox texto4 = fun.setTextos("Necesitas varios navegadores web para probar tu sitio web y asegurarte de que funcione correctamente en diferentes plataformas y navegadores. Algunos navegadores populares incluyen Google Chrome, Mozilla Firefox, Microsoft Edge y Safari.", 10, 0);
-
-        VBox textoBold3 = fun.setTextosBold("HTML (Lenguaje de Marcado de Hipertexto)", 20, 0);
-
-        VBox texto5 = fun.setTextos("El lenguaje de marcado HTML (Hypertext Markup Language) es uno de los pilares fundamentales de la World Wide Web y se utiliza para crear la estructura y el contenido básico de las páginas web. HTML se utiliza en conjunto con CSS (Cascading Style Sheets) y JavaScript para crear sitios web interactivos y atractivos.", 20, 0);
-
-        //Segunda Pagina
-        VBox textoBold4 = fun.setTextosBold("CSS (Hojas de estilo en cascada)", 60, 0);
-
-        VBox texto6 = fun.setTextos("El diseño de una página o sitio web necesita un lenguaje común para que los navegadores puedan interpretarlo y mostrarlo a las personas de la forma correcta. Pero también lo requieren para que otros diseñadores hagan las modificaciones necesarias para su optimización.", 10, 0);
-
-        VBox texto7 = fun.setTextos("Uno de estos lenguajes es el CSS, un gran aliado del HTML que transforma la experiencia de tus visitantes. Css es un lenguaje que maneja el diseño y presentación de las páginas web, es decir, cómo lucen cuando un usuario las visita. Funciona junto con el lenguaje HTML que se encarga del contenido básico de los sitios.", 10, 0);
-
-        VBox textoBold5 = fun.setTextosBold("JavaScript", 20, 0);
-
-        VBox texto8 = fun.setTextos("JavaScript es un lenguaje de programación que los desarrolladores utilizan para hacer páginas web interactivas. Desde actualizar fuentes de redes sociales a mostrar animaciones y mapas interactivos, las funciones de JavaScript pueden mejorar la experiencia del usuario de un sitio web. Como lenguaje de scripting del lado del servidor, se trata de una de las principales tecnologías de la World Wide Web. ", 10, 0);
-        VBox texto9 = fun.setTextos("Por ejemplo, al navegar por Internet, en cualquier momento en el que vea un carrusel de imágenes, un menú desplegable “click-to-show” (clic para mostrar), o cambien de manera dinámica los elementos de color en una página web, estará viendo los efectos de JavaScript.", 10, 0);
-        VBox texto10 = fun.setTextos("Anteriormente, las páginas web eran estáticas, similares a las páginas de un libro. Una página estática mostraba principalmente información en un diseño fijo y no todo aquello que esperamos de un sitio web moderno.", 10, 0);
-
-        izquierda.getChildren().addAll(label, texto1, textoBold1, texto2, texto3, textoBold2, texto4, textoBold3, texto5);
-
-        centro.getChildren().add(imageView);
-
-        derecha.getChildren().addAll(textoBold4, texto6, texto7, textoBold5, texto8, texto9, texto10);
-        page.getChildren().addAll(izquierda, centro, derecha);
-
-        return page;
-    }
-
-    private HBox Pagina3() {
-
-        HBox page = new HBox();
-        page.setMaxHeight(pantallaHeight);
-        page.setMaxWidth(pantallaHeight);
-
-        VBox izquierda = new VBox();
-        izquierda.setMinWidth(620);
-        izquierda.setMinHeight(pantallaHeight);
-        izquierda.setAlignment(Pos.TOP_CENTER);
-
-        VBox centro = new VBox();
-        centro.setMinWidth(50);
-        centro.setMinHeight(pantallaHeight);
-
-        VBox derecha = new VBox();
-        derecha.setMinWidth(620);
-        derecha.setMinHeight(pantallaHeight);
-        derecha.setAlignment(Pos.TOP_CENTER);
-
-        //Primer Pagina
         Label label = new Label("Historia de la Web");
-        label.setStyle("-fx-padding: 60px 0 0 0; -fx-font-weight: bold;");
+        label.setStyle("-fx-padding: 50px 0 0 0; -fx-font-weight: bold;");
         label.setFont(new Font("copper-black ", 26));
 
         ImageView imageView = fun.getImage("medio", ".png", 50, 870);
@@ -413,7 +356,7 @@ public class LibroDesarrollo extends Application {
         return page;
     }
 
-    private HBox Pagina4() {
+    private HBox Pagina3() {
 
         HBox page = new HBox();
         page.setMaxHeight(pantallaHeight);
@@ -435,8 +378,7 @@ public class LibroDesarrollo extends Application {
 
         ImageView imageView = fun.getImage("medio", ".png", 50, 870);
         
-        //Primer Pagina
-        
+        //Primer Pagina  
 
         VBox texto1 = fun.setTextos("Empresas como Netscape y Microsoft lanzaron sus propios navegadores web en competencia con Mosaic.", 60, 0);
 
@@ -476,6 +418,71 @@ public class LibroDesarrollo extends Application {
         return page;
     }
     
+    private HBox Pagina4() {
+
+        HBox page = new HBox();
+        page.setMaxHeight(pantallaHeight);
+        page.setMaxWidth(pantallaHeight);
+
+        VBox izquierda = new VBox();
+        izquierda.setMinWidth(620);
+        izquierda.setMinHeight(pantallaHeight);
+        izquierda.setAlignment(Pos.TOP_CENTER);
+
+        VBox centro = new VBox();
+        centro.setMinWidth(50);
+        centro.setMinHeight(pantallaHeight);
+
+        VBox derecha = new VBox();
+        derecha.setMinWidth(620);
+        derecha.setMinHeight(pantallaHeight);
+        derecha.setAlignment(Pos.TOP_CENTER);
+
+        //Primer Pagina
+        Label label = new Label("Herramientas necerarias");
+        label.setStyle("-fx-padding: 60px 0 0 0; -fx-font-weight: bold;");
+        label.setFont(new Font("copper-black ", 26));
+
+        ImageView imageView = fun.getImage("medio", ".png", 50, 870);
+
+        VBox texto1 = fun.setTextos("Para desarrollar sitios web, necesitarás una serie de herramientas y tecnologías esenciales. Aquí hay una lista de las herramientas y tecnologías básicas que necesitarás:", 20, 0);
+        VBox textoBold1 = fun.setTextosBold("Editor de Codigo o IDE", 20, 0);
+
+        VBox texto2 = fun.setTextos("Un editor de código es esencial para escribir, editar y depurar el código. Algunas opciones populares son Visual Studio Code Sublime Text, Atom y WebStorm", 10, 0);
+
+        VBox texto3 = fun.setTextos("Los IDEs o Entornos de Desarrollo Integrado son excelentes opciones en especial si trabajas con leguajes de servidor con Java, algunos IDEs populares son IntelliJ IDEA, Eclipse, NetBeans y Visual estudio.", 10, 0);
+
+        VBox textoBold2 = fun.setTextosBold("Navegador Web", 20, 0);
+
+        VBox texto4 = fun.setTextos("Necesitas varios navegadores web para probar tu sitio web y asegurarte de que funcione correctamente en diferentes plataformas y navegadores. Algunos navegadores populares incluyen Google Chrome, Mozilla Firefox, Microsoft Edge y Safari.", 10, 0);
+
+        VBox textoBold3 = fun.setTextosBold("HTML (Lenguaje de Marcado de Hipertexto)", 20, 0);
+
+        VBox texto5 = fun.setTextos("El lenguaje de marcado HTML (Hypertext Markup Language) es uno de los pilares fundamentales de la World Wide Web y se utiliza para crear la estructura y el contenido básico de las páginas web. HTML se utiliza en conjunto con CSS (Cascading Style Sheets) y JavaScript para crear sitios web interactivos y atractivos.", 20, 0);
+
+        //Segunda Pagina
+        VBox textoBold4 = fun.setTextosBold("CSS (Hojas de estilo en cascada)", 60, 0);
+
+        VBox texto6 = fun.setTextos("El diseño de una página o sitio web necesita un lenguaje común para que los navegadores puedan interpretarlo y mostrarlo a las personas de la forma correcta. Pero también lo requieren para que otros diseñadores hagan las modificaciones necesarias para su optimización.", 10, 0);
+
+        VBox texto7 = fun.setTextos("Uno de estos lenguajes es el CSS, un gran aliado del HTML que transforma la experiencia de tus visitantes. Css es un lenguaje que maneja el diseño y presentación de las páginas web, es decir, cómo lucen cuando un usuario las visita. Funciona junto con el lenguaje HTML que se encarga del contenido básico de los sitios.", 10, 0);
+
+        VBox textoBold5 = fun.setTextosBold("JavaScript", 20, 0);
+
+        VBox texto8 = fun.setTextos("JavaScript es un lenguaje de programación que los desarrolladores utilizan para hacer páginas web interactivas. Desde actualizar fuentes de redes sociales a mostrar animaciones y mapas interactivos, las funciones de JavaScript pueden mejorar la experiencia del usuario de un sitio web. Como lenguaje de scripting del lado del servidor, se trata de una de las principales tecnologías de la World Wide Web. ", 10, 0);
+        VBox texto9 = fun.setTextos("Por ejemplo, al navegar por Internet, en cualquier momento en el que vea un carrusel de imágenes, un menú desplegable “click-to-show” (clic para mostrar), o cambien de manera dinámica los elementos de color en una página web, estará viendo los efectos de JavaScript.", 10, 0);
+        VBox texto10 = fun.setTextos("Anteriormente, las páginas web eran estáticas, similares a las páginas de un libro. Una página estática mostraba principalmente información en un diseño fijo y no todo aquello que esperamos de un sitio web moderno.", 10, 0);
+
+        izquierda.getChildren().addAll(label, texto1, textoBold1, texto2, texto3, textoBold2, texto4, textoBold3, texto5);
+
+        centro.getChildren().add(imageView);
+
+        derecha.getChildren().addAll(textoBold4, texto6, texto7, textoBold5, texto8, texto9, texto10);
+        page.getChildren().addAll(izquierda, centro, derecha);
+
+        return page;
+    }
+    
     private HBox Pagina5() {
 
         HBox page = new HBox();
@@ -497,26 +504,231 @@ public class LibroDesarrollo extends Application {
         derecha.setAlignment(Pos.TOP_CENTER);
 
         //Primer Pagina
-        Label label = new Label("Historia de la Web");
-        label.setStyle("-fx-padding: 60px 0 0 0; -fx-font-weight: bold;");
-        label.setFont(new Font("copper-black ", 26));
+        VBox textoBold1 = fun.setTextosBold("Sistema de Control de Versiones", 60, 0);
 
         ImageView imageView = fun.getImage("medio", ".png", 50, 870);
 
-        VBox texto1 = fun.setTextos("La historia de la World Wide Web (WWW o Web) es una narrativa fascinante que abarca varias décadas y ha revolucionado la forma en que las personas acceden, comparten y consumen información en todo el mundo.", 20, 0);
+        VBox texto1 = fun.setTextos("Un control de versiones es un sistema que registra los cambios realizados en un archivo o conjunto de archivos a lo largo del tiempo, de modo que puedas recuperar versiones específicas más adelante.", 10, 0);
+        VBox texto2 = fun.setTextos("Git es un sistema de control de versiones distribuido que registra las distintas versiones de un archivo (o conjunto de archivos). Le permite a los usuarios acceder, comparar, actualizar, y distribuir cualquiera de las versiones registradas en cualquier momento.", 10, 0);
 
-        ImageView imgWeb = fun.getImage("web2", ".png", 420, 200);
+        VBox textoBold2 = fun.setTextosBold("", 20, 0);
 
-        VBox textoBold1 = fun.setTextosBold("Década de 1940 a 1950: Orígenes de la Computación", 10, 0);
+        ImageView imgWeb = fun.getImage("control", ".png", 390, 185);
+        
+        VBox textoBold3 = fun.setTextosBold("Herramientas de Diseño Gráfico", 10, 0);
+        
+        VBox texto3 = fun.setTextos("Si eres un diseñador web, necesitarás herramientas como Adobe Photoshop, Adobe Illustrator o herramientas alternativas de diseño gráfico para crear gráficos y elementos visuales para tu sitio.", 10, 0);
+        
+        VBox texto4 = fun.setTextos("El diseño en una página web es crucial porque crea una buena primera impresión, mejora la usabilidad y la confiabilidad, refleja la marca, facilita la optimización para dispositivos móviles, influye en el SEO, aumenta la conversión y la competitividad, y garantiza la accesibilidad.", 10, 0);
+        
+        //Segunda Pagina
+        
+        VBox textoBold4 = fun.setTextosBold("Servidores Web Locales", 60, 0);
+        
+        VBox texto5 = fun.setTextos("Puedes configurar un servidor web local como Apache, Nginx o usar soluciones más simples como XAMPP o WAMP para probar tu sitio web de manera local antes de implementarlo en un servidor en vivo.", 10, 0);
+        
+        VBox texto6 = fun.setTextos("XAMPP es un servidor independiente de plataforma, software libre, que consiste principalmente en la base de datos MySQL, el servidor web Apache y los intérpretes para lenguajes de script: PHP y Perl.", 10, 0);
+        
+        VBox textoBold5 = fun.setTextosBold("Bases de Datos", 20, 0);
+        
+        VBox texto7 = fun.setTextos("Las bases de datos son un componente fundamental en el desarrollo web, y desempeñan un papel crucial en la gestión y manipulación de datos en aplicaciones en línea.", 10, 0);
+        
+        VBox texto8 = fun.setTextos("Las bases de datos permiten el almacenamiento de datos de manera estructurada y organizada. Esto es esencial para gestionar información como perfiles de usuario, contenido del sitio, registros de actividad, inventario de productos y mucho más.", 10, 10);
+        
+        ImageView base = fun.getImage("base", ".png", 475, 272);
 
-        izquierda.getChildren().addAll(label, imgWeb, texto1, textoBold1);
+        izquierda.getChildren().addAll(textoBold1, texto1, texto2, textoBold2, imgWeb, textoBold3, texto3, texto4);
 
         centro.getChildren().add(imageView);
 
-        //derecha.getChildren().addAll(label2, vboxTexto4, vboxTexto5, vboxTexto6, image2, texto7);
+        derecha.getChildren().addAll(textoBold4, texto5, texto6, textoBold5, texto7, texto8, base);
+        
         page.getChildren().addAll(izquierda, centro, derecha);
 
         return page;
     }
+    
+    private HBox Pagina6() {
 
+        HBox page = new HBox();
+        page.setMaxHeight(pantallaHeight);
+        page.setMaxWidth(pantallaHeight);
+
+        VBox izquierda = new VBox();
+        izquierda.setMinWidth(620);
+        izquierda.setMinHeight(pantallaHeight);
+        izquierda.setAlignment(Pos.TOP_CENTER);
+
+        VBox centro = new VBox();
+        centro.setMinWidth(50);
+        centro.setMinHeight(pantallaHeight);
+
+        VBox derecha = new VBox();
+        derecha.setMinWidth(620);
+        derecha.setMinHeight(pantallaHeight);
+        derecha.setAlignment(Pos.TOP_CENTER);
+
+        //Primer Pagina
+        VBox textoBold1 = fun.setTextosBold("Herramientas de Automatización y Empaquetado", 60, 0);
+
+        ImageView imageView = fun.getImage("medio", ".png", 50, 870);
+
+        VBox texto1 = fun.setTextos("Las herramientas de automatización y empaquetado son programas y utilidades diseñados para simplificar y automatizar tareas repetitivas y complejas en el desarrollo de software.", 10, 0);
+        VBox texto2 = fun.setTextos("Utiliza herramientas como Webpack, Gulp o Grunt para automatizar tareas como la minificación de archivos CSS/JS y la optimización de imágenes.", 10, 0);
+        VBox texto3 = fun.setTextos("Las herramientas de automatización y empaquetado son esenciales en el desarrollo de software moderno, ya que agilizan procesos, mejoran la calidad del software y simplifican la gestión de dependencias y despliegues, lo que resulta en un desarrollo más eficiente y una entrega más confiable de aplicaciones.", 10, 0);
+        
+        VBox textoBold2 = fun.setTextosBold("Herramientas de Pruebas y Depuración", 20, 0);
+
+        VBox texto4 = fun.setTextos("Las herramientas de pruebas y depuración son esenciales en el desarrollo web para garantizar que una aplicación o sitio web funcione correctamente y para identificar y solucionar errores y problemas.", 10, 0);
+        VBox texto5 = fun.setTextos("Estas herramientas son esenciales para garantizar el correcto funcionamiento, la calidad y la seguridad de las aplicaciones web durante el desarrollo y en producción.", 10, 0);
+        
+        VBox textoBold3 = fun.setTextosBold("Herramientas de Seguridad", 10, 0);
+        
+        VBox texto6 = fun.setTextos("La seguridad web es una preocupación crítica en el desarrollo de aplicaciones y sitios web.", 10, 0);
+        
+        VBox texto7 = fun.setTextos("Las herramientas para la seguridad web son esenciales para evaluar, mejorar y mantener la seguridad de aplicaciones y sitios web en un entorno en constante evolución de amenazas cibernéticas.", 10, 0);
+        
+        //Segunda Pagina
+        
+        VBox texto8 = fun.setTextos("Además, se recomienda seguir las mejores prácticas de seguridad durante el desarrollo web y mantenerse actualizado sobre las últimas amenazas y soluciones de seguridad.", 60, 0);
+        
+        VBox textoBold4 = fun.setTextosBold("Hospedaje y Dominio", 20, 0);
+        
+        VBox texto9 = fun.setTextos("El dominio y el hospedaje web son dos componentes esenciales para poner un sitio web en línea.", 10, 15);
+        
+        ImageView dominio = fun.getImage("dominio", ".jpg", 410 , 230 );
+        
+        VBox texto10 = fun.setTextos("El Hospedaje web o Hosting web es un servicio para alojar sitios web, es decir, todos los contenidos de tus páginas web para que las personas puedan acceder a él en todo momento a través de diferentes dispositivos siempre que tengan conexión a internet. Si deseas arrancar un negocio o proyecto, necesitas un web hosting para tu sitio web. ", 15, 0);
+        VBox texto11 = fun.setTextos("Un dominio es la dirección de un sitio web. Lo identificas fácilmente como la parte de la URL que escribes en la barra buscadora después de «https://». Por ejemplo, «hubspot.com» es el dominio de HubSpot. También se conoce como el nombre de un sitio y, al igual que el de una marca, es propietario.", 10, 0);
+        
+        izquierda.getChildren().addAll(textoBold1, texto1, texto2, texto3, textoBold2, texto4, texto5, textoBold3, texto6, texto7);
+
+        centro.getChildren().add(imageView);
+
+        derecha.getChildren().addAll(texto8, textoBold4, texto9, dominio, texto10, texto11);
+        
+        page.getChildren().addAll(izquierda, centro, derecha);
+
+        return page;
+    }
+    
+    private HBox Pagina7() {
+
+        HBox page = new HBox();
+        page.setMaxHeight(pantallaHeight);
+        page.setMaxWidth(pantallaHeight);
+
+        VBox izquierda = new VBox();
+        izquierda.setMinWidth(620);
+        izquierda.setMinHeight(pantallaHeight);
+        izquierda.setAlignment(Pos.TOP_CENTER);
+
+        VBox centro = new VBox();
+        centro.setMinWidth(50);
+        centro.setMinHeight(pantallaHeight);
+
+        VBox derecha = new VBox();
+        derecha.setMinWidth(620);
+        derecha.setMinHeight(pantallaHeight);
+        derecha.setAlignment(Pos.TOP_CENTER);
+
+        ImageView imageView = fun.getImage("medio", ".png", 50, 870);
+        //Primer Pagina
+
+
+        VBox texto1 = fun.setTextos("Los dominios funcionan como la dirección de tu casa. Si tus amigos quieren visitarte, en lugar de usar las coordenadas de GPS de tu casa, simplemente escriben tu dirección, que es mucho más fácil de recordar.", 60, 0);
+
+        VBox texto2 = fun.setTextos("Todos los sitios web tienen una dirección IP, una serie única de números que conecta los equipos con los servidores web, pero es imposible que los usuarios memoricen las direcciones IP de todos los sitios que quieran visitar. Por suerte, los dominios reemplazan la dirección IP de los sitios web, lo que permite a la audiencia recordarlos e identificarlos fácilmente.", 10, 0);
+        
+        VBox texto3 = fun.setTextos("En resumen, un dominio web es la dirección que permite a las personas encontrar tu sitio en Internet, mientras que el hospedaje web proporciona el espacio y los recursos necesarios para almacenar y servir los archivos y datos de tu sitio. Ambos son fundamentales para poner un sitio web en línea y hacerlo accesible para usuarios de todo el mundo.", 10, 0);
+        
+        VBox textoBold1 = fun.setTextosBold("Conocimiento sobre SEO", 20, 0);
+        
+        VBox texto4 = fun.setTextos("el SEO (Search Engine Optimization, en español Optimización de Motores de Búsqueda) es una práctica fundamental en el mundo del marketing digital y el desarrollo web. El SEO es un conjunto de estrategias y técnicas diseñadas para mejorar la visibilidad de un sitio web en los motores de búsqueda como Google, Bing y Yahoo.", 10, 0);
+        
+        VBox texto5 = fun.setTextos("El objetivo principal del SEO es aumentar la cantidad y la calidad del tráfico orgánico (no pagado) hacia un sitio web.", 10, 0);
+        
+        //Segunda Pagina
+        
+        VBox texto6 = fun.setTextos("El SEO es una disciplina esencial para aumentar la visibilidad en línea y el tráfico de un sitio web. Al comprender y aplicar estrategias de SEO de manera efectiva, puedes mejorar la presencia de tu sitio en los motores de búsqueda y llegar a un público más amplio.", 60, 15);
+
+        ImageView seo = fun.getImage("seo", ".png", 420, 335);
+        
+        VBox textoBold2 = fun.setTextosBold("Control de Calidad y Pruebas", 20, 0);
+        
+        VBox texto7 = fun.setTextos("El control de calidad y las pruebas en el desarrollo web son procesos fundamentales para garantizar que una aplicación o sitio web funcione correctamente y cumpla con los estándares de calidad.", 10, 0);
+        
+        VBox texto8 = fun.setTextos("El control de calidad se refiere al conjunto de actividades y procesos que tienen como objetivo garantizar la calidad y la excelencia de un producto o servicio, en este caso, una aplicación web.", 10, 0);
+
+        VBox textoBold3 = fun.setTextosBold("Herramientas de Diseño Gráfico", 20, 0);
+             
+        
+        VBox textoBold4 = fun.setTextosBold("Servidores Web Locales", 20, 0);
+        
+        
+        izquierda.getChildren().addAll(texto1, texto2, texto3, textoBold1, texto4, texto5);
+
+        centro.getChildren().add(imageView);
+
+        derecha.getChildren().addAll(texto6, seo, textoBold2, texto7, texto8);
+        
+        page.getChildren().addAll(izquierda, centro, derecha);
+
+        return page;
+    }
+    
+    private HBox Pagina8() {
+
+        HBox page = new HBox();
+        page.setMaxHeight(pantallaHeight);
+        page.setMaxWidth(pantallaHeight);
+
+        VBox izquierda = new VBox();
+        izquierda.setMinWidth(620);
+        izquierda.setMinHeight(pantallaHeight);
+        izquierda.setAlignment(Pos.TOP_CENTER);
+
+        VBox centro = new VBox();
+        centro.setMinWidth(50);
+        centro.setMinHeight(pantallaHeight);
+
+        VBox derecha = new VBox();
+        derecha.setMinWidth(620);
+        derecha.setMinHeight(pantallaHeight);
+        derecha.setAlignment(Pos.TOP_CENTER);
+
+        //Primer Pagina
+        VBox textoBold1 = fun.setTextosBold("Sistema de Control de Versiones", 60, 0);
+
+        ImageView imageView = fun.getImage("medio", ".png", 50, 870);
+
+        VBox texto1 = fun.setTextos("Un control de versiones es un sistema que registra los cambios realizados en un archivo o conjunto de archivos a lo largo del tiempo, de modo que puedas recuperar versiones específicas más adelante.", 10, 0);
+        VBox texto2 = fun.setTextos("Git es un sistema de control de versiones distribuido que registra las distintas versiones de un archivo (o conjunto de archivos). Le permite a los usuarios acceder, comparar, actualizar, y distribuir cualquiera de las versiones registradas en cualquier momento.", 10, 0);
+
+        VBox textoBold2 = fun.setTextosBold("", 20, 0);
+
+        ImageView imgWeb = fun.getImage("control", ".png", 390, 185);
+        
+        VBox textoBold3 = fun.setTextosBold("Herramientas de Diseño Gráfico", 10, 0);
+        
+        VBox texto3 = fun.setTextos("Si eres un diseñador web, necesitarás herramientas como Adobe Photoshop, Adobe Illustrator o herramientas alternativas de diseño gráfico para crear gráficos y elementos visuales para tu sitio.", 10, 0);
+        
+        VBox texto4 = fun.setTextos("El diseño en una página web es crucial porque crea una buena primera impresión, mejora la usabilidad y la confiabilidad, refleja la marca, facilita la optimización para dispositivos móviles, influye en el SEO, aumenta la conversión y la competitividad, y garantiza la accesibilidad.", 10, 0);
+        
+        //Segunda Pagina
+        
+        VBox textoBold4 = fun.setTextosBold("Servidores Web Locales", 20, 0);
+        
+        VBox texto5 = fun.setTextos("Puedes configurar un servidor web local como Apache, Nginx o usar soluciones más simples como XAMPP o WAMP para probar tu sitio web de manera local antes de implementarlo en un servidor en vivo.", 10, 0);
+        
+        izquierda.getChildren().addAll(textoBold1, texto1, texto2, textoBold2, imgWeb, textoBold3, texto3, texto4);
+
+        centro.getChildren().add(imageView);
+
+        derecha.getChildren().addAll(textoBold4, texto5);
+        page.getChildren().addAll(izquierda, centro, derecha);
+
+        return page;
+    }
+    
 }

@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Libro-Desarrollo.jar" size="1196061" download="eager" />
+    <jar href="Libro-Desarrollo.jar" size="1440080" download="eager" />
   </resources>
   <jfx:javafx-desc  width="800" height="600" main-class="libro.desarrollo.LibroDesarrollo"  name="Libro-Desarrollo" />
   <update check="always"/>
