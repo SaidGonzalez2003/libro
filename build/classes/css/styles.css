@@ -1,0 +1,20 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 1 sept 2023, 7:18:12 p. m.
+    Author     : Alan
+*/
+/* Estilo base del botón */
+.scale-boton {
+    -fx-scale-x: 1.0;
+    -fx-scale-y: 1.0;
+    -fx-background-color: #FFF; 
+    -fx-alignment: center;
+}
+
+/* Estilo de hover del botón */
+.scale-boton:hover {
+    -fx-effect: scale(1.1); /* Escalar con una transición */
+}
